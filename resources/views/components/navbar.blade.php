@@ -12,7 +12,7 @@
           <a class="nav-link" href="{{route('contacts')}}">Contattaci</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
+          <a class="nav-link" href="{{route('article.create')}}">Posta i tuoi pattini</a>
         </li>
         <li class="nav-item">
           <a class="nav-link disabled" href="#">Disabled</a>

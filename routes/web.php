@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PublicController;
+use App\Http\Controllers\ArticleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,6 @@ Route::get('/',[PublicController::class , 'home'])->name('homepage');
 Route::get('/contacts' , [PublicController::class , 'contacts' ])->name('contacts');
 
 Route::post('/contacts/submit' , [PublicController::class, 'submit'])->name('contacts.submit');
+
+Route::get('/article/create' , [ArticleController::class , 'create'])->name('article.create');
+Route::post('/article/store' , [ArticleController::class , 'store'])->name('article.store');
