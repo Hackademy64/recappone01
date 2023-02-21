@@ -11,12 +11,34 @@
         <li class="nav-item">
           <a class="nav-link" href="{{route('contacts')}}">Contattaci</a>
         </li>
-        <li class="nav-item">
+                <li class="nav-item">
           <a class="nav-link" href="{{route('article.create')}}">Posta i tuoi pattini</a>
         </li>
+
+        @guest
         <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
+          <a class="nav-link " href="{{route('register')}}">Registrati</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link " href="{{route('login')}}">Login</a>
+        </li>
+        @else
+        <li class="nav-item">
+          <p class="nav-link">Benvenuto {{Auth::user()->name}}</p>
+        </li>
+          {{-- <ul class="dropdown-menu"> --}}
+            <li class="nav-item">
+              <a href="{{route('logout')}}" class="nav-link" 
+              onclick="event.preventDefault();
+              document.getElementById('logout-form').submit();" >
+              Log out</a>
+            </li>
+            <form id="logout-form" action="{{route('logout')}}" method="POST" class="d-none">
+            @csrf
+        @endguest
+          </form>
+          {{-- </ul> --}}
+
       </ul>
     </div>
   </nav>
