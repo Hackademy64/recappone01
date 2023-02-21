@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\Article;
 use App\Mail\ContactMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -10,10 +11,13 @@ use Illuminate\Support\Facades\Mail;
 class PublicController extends Controller
 {
    public function home () {
-        return view('welcome');
+    $articles = Article::all()->sortDesc(); 
+    // dd($articles);
+        return view('welcome' , compact('articles'));
     }  
 
   public function contacts(){
+
     return view('contacts');
   }
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use Illuminate\Http\Request;
+use App\Http\Requests\ArticleRequest;
 
 class ArticleController extends Controller
 {
@@ -12,7 +13,7 @@ class ArticleController extends Controller
         return view('article/create');
 
     }
-    public function store(Request $request){
+    public function store(ArticleRequest $request){
 
             $articles = Article::create(
 
