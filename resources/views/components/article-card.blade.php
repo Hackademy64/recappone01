@@ -11,6 +11,7 @@
           <p class="card-text">{{$article->brand}}</p>
           <p class="card-text">{{$article->model}}</p>
           <p class="card-text"><small class="text-muted">{{$article->created_at->format('d/m/y')}}</small></p>
+          <a href="{{route('article.detail' , ['title' =>$article->title])}}" class="btn btn-primary"> Maggiori dettagli</a>
         </div>
       </div>
     </div>

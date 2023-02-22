@@ -31,4 +31,11 @@ class ArticleController extends Controller
       return redirect()->route('homepage')->with('message' , 'Grazie per aver condiviso la tua passione con noi. SK8Forever.');
 
     }
+
+        public function details($title){
+
+            $article = Article::where('title' , $title)->first();
+            return view('article/detail' , compact('article'));
+        }
+
 }

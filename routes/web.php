@@ -23,3 +23,4 @@ Route::post('/contacts/submit' , [PublicController::class, 'submit'])->name('con
 
 Route::get('/article/create' , [ArticleController::class , 'create'])->name('article.create');
 Route::post('/article/store' , [ArticleController::class , 'store'])->name('article.store');
+Route::get('/article/detail{title}' , [ArticleController::class , 'details'])->name('article.detail');

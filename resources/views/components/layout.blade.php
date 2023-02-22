@@ -14,5 +14,6 @@
     </div>
 
     <x-footer/>
+    <script src="https://kit.fontawesome.com/823b609f2e.js" crossorigin="anonymous"></script>
 </body>
 </html>
