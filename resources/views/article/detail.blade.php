@@ -1,6 +1,6 @@
 <x-layout>
     <x-header
-      title="Scopri di più"
+      title="{{$article->title}}"
     />
     @if (session('message'))
     <div class="alert alert-success">
@@ -24,8 +24,15 @@
                             <h5 class="card-title">{{$article->title}}</h5>
                             <p class="card-text">{{$article->brand}}</p>
                             <p class="card-text">{{$article->model}}</p>
+                            <p class="card-text">{{$article->body}}</p>
                             <p class="card-text"><small class="text-muted">{{$article->created_at->format('d/m/y')}}</small></p>
                             <a href="{{route('homepage' )}}" class="btn btn-primary"> Torna alla home</a>
+                            <a href="{{route('article.update' , compact('article') )}}" class="btn btn-primary"> Modifica</a>
+                            <form method="POST" action="{{route('article.delete' , compact('article'))}}">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="btn btn-danger">Elimina</button>
+                            </form>
                             </div>
                         </div>
                         </div>

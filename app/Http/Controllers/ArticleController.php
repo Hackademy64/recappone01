@@ -8,6 +8,12 @@ use App\Http\Requests\ArticleRequest;
 
 class ArticleController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
     public function create(){
       
         return view('article/create');
@@ -37,5 +43,27 @@ class ArticleController extends Controller
             $article = Article::where('title' , $title)->first();
             return view('article/detail' , compact('article'));
         }
+
+        public function update(Article $article){
+          return view('article/update' , compact('article'));
+        }
+
+            public function edit(Request $request, Article $article){
+                    $article->title = $request->title;
+                    $article->brand = $request->brand;
+                    $article->model = $request->model;
+                    $article->body = $request->body;
+                    $article->save();
+                    return redirect(route('homepage' , compact('article')));
+
+
+            }
+
+            public function destroy(Article $article) {
+                $article->delete();
+                return redirect(route('homepage'));
+
+            }
+
 
 }
