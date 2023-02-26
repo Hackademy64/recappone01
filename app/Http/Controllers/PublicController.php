@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Article;
+use App\Models\Product;
 use App\Mail\ContactMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -13,12 +14,21 @@ class PublicController extends Controller
    public function home () {
     $articles = Article::all()->sortDesc(); 
     // dd($articles);
-        return view('welcome' , compact('articles'));
+
+    $products = Product::all();
+    //return view('welcome' , compact('products'));
+
+        return view('welcome' , compact('articles' , 'products'));
     }  
 
   public function contacts(){
 
     return view('contacts');
+
+
+
+
+
   }
 
 public function submit(Request $request){
@@ -30,6 +40,10 @@ public function submit(Request $request){
   //dd($request->all() ,$email , $name , $body , $user);
   return redirect(route('homepage'))->with('message' , 'La tua mail è stata inviata');
 }
+
+
+
+
 
 
 }

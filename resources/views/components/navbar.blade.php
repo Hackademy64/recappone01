@@ -22,7 +22,12 @@
         <li class="nav-item">
           <a class="nav-link " href="{{route('login')}}">Login</a>
         </li>
+       
         @else
+       
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href=" {{route('product.create')}}">Crea Prodotto</a>
+        </li>
         <li class="nav-item">
           <p class="nav-link">Benvenuto {{Auth::user()->name}}</p>
         </li>

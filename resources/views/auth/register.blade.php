@@ -34,4 +34,5 @@ title="Registrati"
         </div>
     </div>
 </div>
+
 </x-layout>
